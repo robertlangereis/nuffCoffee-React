@@ -1,11 +1,8 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  /* background-color: #778BEB;
+  width: 100%;
+  height: 100%; */
 }
 
 .App-header {
@@ -30,4 +27,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.screen{
+  background-color: #778BEB;
+  width: 100vw;
+  height: 100vh;
+}
+
+.coffeecup{
+  height: 150px;
+  width: 200px;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  left: 20vw;
+  top: 30vh;
+  position: absolute;
+}
+
+.minusButton{
+  position: absolute;
+  left: 15vw;
+}
+
+.coffeecupcontainer{
+  height: 300px;
+  width: 100%;
+}
+
+.menu{
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 15vw;
+  margin: 0 auto;
 }
