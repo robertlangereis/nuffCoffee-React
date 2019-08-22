@@ -29,34 +29,57 @@
   }
 }
 
-.screen{
-  background-color: #778BEB;
+.screen {
+  background-color: #778beb;
   width: 100vw;
   height: 100vh;
 }
 
-.coffeecup{
-  height: 150px;
-  width: 200px;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  left: 20vw;
-  top: 30vh;
-  position: absolute;
+.logo {
+  text-align: center;
 }
 
-.minusButton{
-  position: absolute;
-  left: 15vw;
-}
-
-.coffeecupcontainer{
-  height: 300px;
+.coffeecupcontainer {
+  margin: auto;
   width: 100%;
+  height: 50vh;
 }
 
-.menu{
+.coffeecup {
+  height: 50%;
+  top: 50%;
+  display: block;
+  padding: 17% 0;
+  margin: 0 auto;
+  margin-left: 20%;
+}
+
+.minusButton {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  /* background-color: #c70f43; */
+  background-color:#631526;
+  color: white;
+  height: 60px;
+  border: 0px transparent;
+  border-radius:50px;
+  font-size: 20px;
+  border-style: none;
+}
+
+.buttoncontainer {
+  display: inline;
+}
+
+.MuiButton-label {
+  color: white;
+}
+.MuiButtonBase-root {
+  background-color: #e15f41;
+}
+
+.menu {
   display: flex;
   position: absolute;
   bottom: 20px;

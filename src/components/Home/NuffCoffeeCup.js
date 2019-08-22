@@ -9,17 +9,22 @@ import Coffee5shot from './images/coffee5shots.svg'
 
 class NuffCoffeeCup extends React.Component {
   
-  
+  coffeeCounterMinus = () => {
+    console.log(this.props.coffeeMinus, "PROPS")
+      this.props.coffeeMinus(-1);
+  }
+
   render() {
-    console.log(this.props.coffee)
+    console.log(this.props.coffeeCount)
     return(
             <div className="coffeecupcontainer">
-                {this.props.coffee===0 && <img  className="coffeecup" src={Coffeestart} alt="nuffcoffeecup"/>}
-                {this.props.coffee===1 && <img className="coffeecup" src={Coffee1shot} alt="nuffcoffeecup-1shot"/>}
-                {this.props.coffee===2 && <img className="coffeecup" src={Coffee2shot} alt="nuffcoffeecup-2shot"/>}
-                {this.props.coffee===3 && <img className="coffeecup" src={Coffee3shot} alt="nuffcoffeecup-3shot"/>}
-                {this.props.coffee===4 && <img className="coffeecup" src={Coffee4shot} alt="nuffcoffeecup-4shot"/>}
-                {this.props.coffee===5 && <img className="coffeecup" src={Coffee5shot} alt="nuffcoffeecup-5shot"/>}
+                {this.props.coffeeCount<=0 && <img  className="coffeecup" src={Coffeestart} alt="nuffcoffeecup"/>}
+                {this.props.coffeeCount===1 && <img className="coffeecup" src={Coffee1shot} alt="nuffcoffeecup-1shot"/>}
+                {this.props.coffeeCount===2 && <img className="coffeecup" src={Coffee2shot} alt="nuffcoffeecup-2shot"/>}
+                {this.props.coffeeCount===3 && <img className="coffeecup" src={Coffee3shot} alt="nuffcoffeecup-3shot"/>}
+                {this.props.coffeeCount===4 && <img className="coffeecup" src={Coffee4shot} alt="nuffcoffeecup-4shot"/>}
+                {this.props.coffeeCount===5 && <img className="coffeecup" src={Coffee5shot} alt="nuffcoffeecup-5shot"/>}
+                {this.props.coffeeCount>0 && <div className="buttoncontainer"><button className="minusButton" onClick={() => this.coffeeCounterMinus}>Scratch that last one!</button></div>}
                 {/* {this.props.coffeecount===6 && <img className="coffeecup" src={coffeecup} alt="nuffcoffeecup-6shot"/>}
                 {this.props.coffeecount===7 && <img className="coffeecup" src={coffeecup} alt="nuffcoffeecup-7shot"/>}
                 {this.props.coffeecount===8 && <img className="coffeecup" src={coffeecup} alt="nuffcoffeecup-8shot"/>}

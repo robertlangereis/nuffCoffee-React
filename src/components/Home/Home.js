@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@material-ui/core/Button';
 import NuffCoffee from './NuffCoffee';
 
 export default class Home extends React.Component {
@@ -8,10 +7,10 @@ export default class Home extends React.Component {
     
     return<div className="home"> 
       
-      <h1>nuffCoffee</h1>
+      <h1 class="logo">nuffCoffee</h1>
       <NuffCoffee/>
-      <div className="menu"><Button>About</Button>
-      <Button>Home</Button>
-      <Button>History</Button></div>
+      <div className="menu"><button>About</button>
+      <button>Home</button>
+      <button>History</button></div>
       </div>}
 }

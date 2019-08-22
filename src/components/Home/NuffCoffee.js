@@ -1,7 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-
-// import { Link } from 'react-router-dom'
 import NuffCoffeeCup from './NuffCoffeeCup';
 
 class NuffCoffee extends React.Component {
@@ -12,24 +9,23 @@ class NuffCoffee extends React.Component {
     };
   }
   coffeeCounterPlus = () => {
-    console.log(this.state.coffeecount)
-    this.setState ({
-      coffeecount: this.state.coffeecount+1
-    }) 
+    this.setState({
+      coffeecount: this.state.coffeecount + 1
+    })
   }
-  coffeeCounterMinus = () => {
-    console.log(this.state.coffeecount)
-    this.setState ({
-      coffeecount: this.state.coffeecount-1
-    }) 
+  coffeeCounterMinus = (childData) => {
+    console.log('childData', childData);
+    console.log(this.state.coffeecount, "this.state.coffeecount")
+    this.setState({
+      coffeecount: childData
+    })
   }
 
   render() {
-    return(
-            <div className="coffeecupcontainer">
-              <a onClick={this.coffeeCounterPlus}><NuffCoffeeCup coffee={this.state.coffeecount}/></a>
-              <Button className="minusButton" onClick={this.coffeeCounterMinus}>Scratch that last one!</Button>
-            </div>)
+    return (
+      <div className="coffeecupcontainer">
+        <a href="#" onClick={this.coffeeCounterPlus}><NuffCoffeeCup coffeeCount={this.state.coffeecount} coffeeMinus={this.coffeeCounterMinus} /></a>
+      </div>)
   }
 }
 export default NuffCoffee;
