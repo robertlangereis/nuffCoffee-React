@@ -7,7 +7,7 @@ export default class Home extends React.Component {
     
     return<div className="home"> 
       
-      <h1 class="logo">nuffCoffee</h1>
+      <h1 className="logo">nuffCoffee</h1>
       <NuffCoffee/>
       <div className="menu"><button>About</button>
       <button>Home</button>
