@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Livvic', sans-serif;
+}
 .App {
   text-align: center;
-  /* background-color: #778BEB;
-  width: 100%;
-  height: 100%; */
 }
 
 .App-header {
@@ -37,35 +42,62 @@
 
 .logo {
   text-align: center;
+  color: #3DC1D3;
+  padding-top: 1em;
+  font-size: 46px; 
+  font-weight: 700;
 }
 
 .coffeecupcontainer {
   margin: auto;
   width: 100%;
-  height: 50vh;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
 
 .coffeecup {
-  height: 50%;
-  top: 50%;
-  display: block;
-  padding: 17% 0;
-  margin: 0 auto;
-  margin-left: 20%;
+  margin-left: 2%;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+.counterText{
+  width: 100vw;
+  color: #c44569;
+  text-align: center;
+  margin: 30px 0;
+  font-size: 18px; 
+}
+
+.firstCoffee{
+  position: relative;
+  color: white;
+  text-align: center;
+  background-color: #c44569;
+  bottom: 35%;
 }
 
 .minusButton {
-  display: block;
-  margin: 0 auto;
-  width: 30%;
+  /* display: block; */
+  /* margin: 0 auto; */
+  width: 35%;
   /* background-color: #c70f43; */
-  background-color:#631526;
+  background-color: #E15F41;
   color: white;
   height: 60px;
   border: 0px transparent;
-  border-radius:50px;
+  border-radius: 50px;
   font-size: 20px;
-  border-style: none;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, 250%);
 }
 
 .buttoncontainer {
@@ -80,9 +112,30 @@
 }
 
 .menu {
+  width: 100vw;
+  /* height: 60vh; */
   display: flex;
-  position: absolute;
-  bottom: 20px;
-  left: 15vw;
   margin: 0 auto;
+  justify-content: space-between;
+  align-content: flex-end;
+  position: fixed;
+  bottom: 4%;
+  /* left: 50%; */
+  /* bring your own prefixes */
+  transform: translate(0%, -50%);
+}
+
+.menu__btn {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  /* background-color: #c70f43; */
+  background-color: #f5cd79;
+  color: white;
+  height: 60px;
+  border: 0px transparent;
+  border-radius: 50px;
+  font-size: 20px;
+  border-style: none;
+  margin: 0 20px;
 }

@@ -30,7 +30,7 @@ class NuffCoffeeCup extends React.Component {
                 {this.props.coffeecount===8 && <img className="coffeecup" src={coffeecup} alt="nuffcoffeecup-8shot"/>}
                 {this.props.coffeecount>8 && <img className="coffeecup" src={coffeecup} alt="nuffcoffeecup-8shot"/>} */}
             </div>
-            {this.props.coffeeCount>0 && <div className="buttoncontainer"><button className="minusButton" onClick={this.props.coffeeMinus}>Scratch that last one!</button></div>}
+            {this.props.coffeeCount>0 ? <div className="buttoncontainer"><button className="minusButton" onClick={this.props.coffeeMinus}>Scratch that one!</button></div> : <div className="firstCoffee">GET YOUR FIRST SHOT OF THE DAY</div>}
             </div>)
   }
 }
