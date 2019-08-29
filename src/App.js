@@ -4,6 +4,7 @@ import './App.css'
 // import TopBar from './components/layout/TopBar'
 import Home from './components/Home/Home';
 import NuffCoffee from './components/Home/NuffCoffee.js';
+import {RemoveScrollBar} from 'react-remove-scroll-bar';
 
 
 
@@ -13,11 +14,12 @@ class App extends Component {
   render() {
     return (
       <Router>
+      <RemoveScrollBar />
         <div>
           <nav>
             {/* <TopBar /> */}
           </nav>
-          <main className="screen" style={{marginTop:10}}>
+          <main className="screen">
             <Route exact path="/about" component={Home} />
             <Route exact path="/nuff" component={NuffCoffee} />
             <Route exact path="/" render={ () => <Redirect to="/about" /> } />

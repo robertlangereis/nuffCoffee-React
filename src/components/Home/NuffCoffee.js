@@ -31,10 +31,23 @@ class NuffCoffee extends React.Component {
   
   render() {
     console.log(this.state.coffeecount, "this.state.coffeecount")
-    return (
+    const date = new Date();
+    // const day = date.getDay();
+    const weekday = new Array(7);
+    weekday[0] =  "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    const day = weekday[date.getDay()]
+    return (<div>
+      <div className="counterText">{day}: {this.state.coffeecount} coffee shots</div>
+      {this.state.coffeecount===0 && <div className="firstCoffee">GET YOUR FIRST SHOT OF THE DAY!</div> }
       <div className="coffeecupcontainer">
         <NuffCoffeeCup coffeeCount={this.state.coffeecount} coffeeMinus={this.coffeeCounterMinus} coffeePlus={this.coffeeCounterPlus}/>
-      </div>)
+      </div></div>)
   }
 }
 export default NuffCoffee;
