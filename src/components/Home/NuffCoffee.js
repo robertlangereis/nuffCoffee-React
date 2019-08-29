@@ -44,6 +44,7 @@ class NuffCoffee extends React.Component {
     const day = weekday[date.getDay()]
     return (<div>
       <div className="counterText">{day}: {this.state.coffeecount} coffee shots</div>
+      {this.state.coffeecount===0 && <div className="firstCoffee">GET YOUR FIRST SHOT OF THE DAY!</div> }
       <div className="coffeecupcontainer">
         <NuffCoffeeCup coffeeCount={this.state.coffeecount} coffeeMinus={this.coffeeCounterMinus} coffeePlus={this.coffeeCounterPlus}/>
       </div></div>)

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Livvic&display=swap');
 
 
 * {
@@ -6,6 +6,24 @@
   padding: 0;
   font-family: 'Livvic', sans-serif;
 }
+
+@media only screen and (max-width: 325px) {
+  .coffeecup {
+    width: 50%; 
+    transform: translate(-50%, 40%) !important;
+  } 
+  .minusButton {
+    transform: translate(-50%, 300%) !important;
+    font-size: 16px !important;
+  }
+  .menu__btn{
+    font-size: 16px !important;
+  }
+  .menu{
+    transform: translate(0%, 0%) !important;
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -63,22 +81,27 @@
   position: fixed;
   top: 35%;
   left: 50%;
-  transform: translate(-50%, -25%);
-}
+  transform: translate(-50%, 0%);}
+
+  
 
 .counterText{
   width: 100vw;
   color: #c44569;
   text-align: center;
-  margin: 30px 0;
-  font-size: 18px; 
+  margin: 25px 0;
+  font-size: 26px; 
+  font-family: 'Fira', sans-serif;
+  font-weight: 900;
 }
 
 .firstCoffee{
   position: relative;
   color: white;
   text-align: center;
-  background-color: #c44569;
+  background-color: #e15f41;
+  font-weight: bolder;
+  padding: 6px 0;
   bottom: 35%;
 }
 
@@ -97,7 +120,7 @@
   top: 70%;
   left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, 250%);
+  transform: translate(-50%, 350%);
 }
 
 .buttoncontainer {
