@@ -59,7 +59,7 @@ export const login = (email, password) => (dispatch) =>
 export const signup = (email, password) => (dispatch) =>
 	request
 		.post(`${baseUrl}/users`)
-		.send({ firstName: email, lastName: email, email, password })
+		.send({ email: email, password: password })
 		.then(result => {
 			dispatch(userSignupSuccess())
 		})
@@ -68,7 +68,7 @@ export const signup = (email, password) => (dispatch) =>
 				dispatch(userSignupFailed(err.response.body.message))
 			}
 			else {
-				console.error(err)
+				console.error(err, "Joe error @actions/users.js")
 			}
 		})
 
