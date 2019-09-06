@@ -1,5 +1,19 @@
-import events from './events'
+import coffee from './coffee'
+import coffees from './coffees'
+import coffeetypes from './coffeetypes'
+import coffeetype from './coffeetype'
+import login from './login'
+import signup from './signup'
+import currentUser from './currentUser'
+import users from './users'
 
 export default {
-  events,
+  coffee,
+  coffees,
+  coffeetypes,
+  coffeetype,
+  login, 
+  signup,
+  currentUser,
+  users
 }

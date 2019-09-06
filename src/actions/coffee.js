@@ -1,88 +1,90 @@
 import * as request from 'superagent'
-import {baseUrl} from '../constants'
-import {logout} from './users'
-import {isExpired} from '../jwt'
+import { baseUrl } from '../constants'
+import { logout } from './users'
+import { isExpired } from '../jwt'
 
-export const ADD_EVENT = 'ADD_EVENT'
-// export const UPDATE_EVENT = 'UPDATE_EVENT'
-export const GET_EVENTS = 'GET_EVENTS'
-export const GET_EVENT = 'GET_EVENT'
-export const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS'
+export const ADD_COFFEE = 'ADD_COFFEE'
+export const GET_COFFEES = 'GET_COFEEES'
+export const GET_COFFEE = 'GET_COFEEE'
+export const UPDATE_COFFEE_SUCCESS = 'UPDATE_COFEEE_SUCCESS'
 
-const updateEvents = events => ({
-  type: GET_EVENTS,
-  payload: events
+const updateCoffees = coffees => ({
+  type: GET_COFFEES,
+  payload: coffees
 })
 
-const updateEvent = event => ({
-  type: GET_EVENT,
-  payload: event
+const updateCoffee = coffee => ({
+  type: GET_COFFEE,
+  payload: coffee
 })
 
-const addEvent = event => ({
-  type: ADD_EVENT,
-  payload: event
+const addCoffee = coffee => ({
+  type: ADD_COFFEE,
+  payload: coffee
 })
 
-const eventUpdateSuccess = () => ({
-  type: UPDATE_EVENT_SUCCESS
+const coffeeUpdateSuccess = () => ({
+  type: UPDATE_COFFEE_SUCCESS
 })
 
-
-export const getEvents = () => (dispatch, getState) => {
-  if (getState().events) return
+// GET ALL COFFEES
+export const getCoffees = () => (dispatch, getState) => {
+  if (getState().coffees) return
   request
-    .get(`${baseUrl}/events`)
+    .get(`${baseUrl}/coffee`)
     .then(result => {
-      dispatch(updateEvents(result.body))
+      dispatch(updateCoffees(result.body))
     })
     .catch(err => console.error(err))
 }
 
-export const getEvent = (eventId) => (dispatch) => {
+// GET COFFEE BY ID
+export const getCoffee = (coffeeId) => (dispatch) => {
   request
-  .get(`${baseUrl}/events/${eventId}`)
-  .then(response => {
-    if(response.ok){
-      dispatch(updateEvent(response.body))
-        }
-        else{return "there was an error loading the event"}
+    .get(`${baseUrl}/coffees/${coffeeId}`)
+    .then(response => {
+      if (response.ok) {
+        dispatch(updateCoffee(response.body))
+      }
+      else { return "there was an error loading the coffee" }
     })
     .catch(err => console.error(err))
 }
 
-export const createEvent = (eventName, eventDescription, image_url, start_date, end_date) => (dispatch, getState) => {
+// CREATE COFFEEE LOG
+export const createCoffee = (coffeeTypeId, time_added) => (dispatch, getState) => {
   const state = getState()
   const jwt = state.currentUser.jwt
   if (isExpired(jwt)) return dispatch(logout())
   request
-  .post(`${baseUrl}/events`)
-  .set('Authorization', `Bearer ${jwt}`)
-  .send({
-    eventName: 'dingen', 
-    eventDescription: 'dingen', 
-    image_url: 'www.a.nl', 
-    start_date: 'datum',
-    end_date: 'eind-datum'})
-  .then(result => {
-    if(result.ok){
-    dispatch(addEvent(result.body)) 
-  }
-  else {return "there was an error creating the event"}
-  })
-    .catch(err => console.error(err))
-}
-//
-export const eventUpdate = (eventId, commentId) => (dispatch, getState) => {
-  const state = getState()
-  const jwt = state.currentUser.jwt
-
-  if (isExpired(jwt)) return dispatch(logout())
-
-  request
-    .patch(`${baseUrl}/events/${eventId}`)
+    .post(`${baseUrl}/coffees`)
     .set('Authorization', `Bearer ${jwt}`)
-    .send({ commentId })
-    .then(_ => dispatch(eventUpdateSuccess()))
+    .send({
+      coffeeTypeId: 1,
+      time_added: 'datum'
+    })
+    .then(result => {
+      if (result.ok) {
+        dispatch(addCoffee(result.body))
+      }
+      else { return "there was an error creating this coffee log" }
+    })
+    .catch(err => console.error(err))
+}
+// ADJUST COFFEEE LOG
+export const coffeeUpdate = (coffeeId, comments, beans) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  if (isExpired(jwt)) return dispatch(logout())
+
+  request
+    .patch(`${baseUrl}/coffees/${coffeeId}`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .send({
+      comments,
+      beans
+    })
+    .then(_ => dispatch(coffeeUpdateSuccess()))
     .catch(err => console.error(err))
 }
