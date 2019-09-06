@@ -18,9 +18,9 @@ const updateCoffeeType = coffeetype => ({
 
 // GET ALL COFFEETYPES
 export const getCoffeetypes = () => (dispatch, getState) => {
-  if (getState().coffees) return
+  if (getState().coffeetypes) return
   request
-    .get(`${baseUrl}/coffee`)
+    .get(`${baseUrl}/coffeetypes`)
     .then(result => {
       dispatch(updateCoffeeTypes(result.body))
     })

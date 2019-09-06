@@ -1,26 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Livvic&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans|Livvic&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Livvic', sans-serif;
+  font-family: "Livvic", sans-serif;
 }
 
 @media only screen and (max-width: 325px) {
   .coffeecup {
-    width: 50%; 
-    transform: translate(-50%, 40%) !important;
-  } 
+    width: 50%;
+    transform: translate(-50%, 70%) !important;
+  }
   .minusButton {
     transform: translate(-50%, 300%) !important;
     font-size: 16px !important;
   }
-  .menu__btn{
+  .menu__btn {
     font-size: 16px !important;
   }
-  .menu{
+  .menu {
     transform: translate(0%, 0%) !important;
+  }
+  .logo {
+    font-size: 32px !important;
+  }
+  .counterText {
+    font-size: 18px !important;
   }
 }
 
@@ -60,9 +65,9 @@
 
 .logo {
   text-align: center;
-  color: #3DC1D3;
-  padding-top: 1em;
-  font-size: 46px; 
+  color: #3dc1d3;
+  padding-top: 0.5em;
+  font-size: 38px;
   font-weight: 700;
 }
 
@@ -81,28 +86,27 @@
   position: fixed;
   top: 35%;
   left: 50%;
-  transform: translate(-50%, 0%);}
+  transform: translate(-50%, 20%);
+}
 
-  
-
-.counterText{
+.counterText {
   width: 100vw;
   color: #c44569;
   text-align: center;
-  margin: 25px 0;
-  font-size: 26px; 
-  font-family: 'Fira', sans-serif;
+  margin: 15px 0;
+  font-size: 26px;
+  font-family: "Fira", sans-serif;
   font-weight: 900;
 }
 
-.firstCoffee{
+.firstCoffee {
   position: relative;
   color: white;
   text-align: center;
   background-color: #e15f41;
   font-weight: bolder;
   padding: 6px 0;
-  bottom: 35%;
+  /* bottom: 50%;   */
 }
 
 .minusButton {
@@ -110,7 +114,7 @@
   /* margin: 0 auto; */
   width: 35%;
   /* background-color: #c70f43; */
-  background-color: #E15F41;
+  background-color: #e15f41;
   color: white;
   height: 60px;
   border: 0px transparent;

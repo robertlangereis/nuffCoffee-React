@@ -13,7 +13,9 @@ export default (state = null, { type, payload }) => {
 
     case GET_COFFEETYPES:
       return payload.reduce((coffees, coffeetype) => {
-        coffees[coffeetype.id] = coffeetype
+        console.log(coffees)
+        console.log(coffeetype)
+        // coffees[coffeetype.id] = coffeetype
         return coffees
       }, {})
     default:
