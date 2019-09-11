@@ -30,8 +30,12 @@ const coffeeUpdateSuccess = () => ({
 // GET ALL COFFEES
 export const getCoffees = () => (dispatch, getState) => {
   if (getState().coffees) return
+  const state = getState()
+  if (!state.currentUser) return null
+  const jwt = state.currentUser.jwt
   request
     .get(`${baseUrl}/coffee`)
+    .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch(updateCoffees(result.body))
     })

@@ -6,7 +6,30 @@
   font-family: "Livvic", sans-serif;
 }
 
-@media only screen and (max-width: 325px) {
+@-webkit-keyframes loginsucces {
+  25% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes loginsucces {
+  25% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 374px) {
   .coffeecup {
     width: 50%;
     transform: translate(-50%, 70%) !important;
@@ -18,8 +41,14 @@
   .menu__btn {
     font-size: 16px !important;
   }
+  .coffee__btn {
+    font-size: 16px !important;
+  }
   .menu {
     transform: translate(0%, 0%) !important;
+  }
+  .coffeemenu {
+    transform: translate(0%, 20vh) !important;
   }
   .logo {
     font-size: 32px !important;
@@ -99,13 +128,25 @@
   font-weight: 900;
 }
 
+.loginsucces {
+  position: relative;
+  color: white;
+  text-align: center;
+  background-color: #3dc1d3;
+  font-weight: bolder;
+  padding: 6px 0;
+  /* bottom: 50%;   */
+  -webkit-animation-name: loginsucces;
+  -moz-animation-name: loginsucces;
+  animation: loginsucces 3s forwards;
+}
 .firstCoffee {
   position: relative;
   color: white;
   text-align: center;
   background-color: #e15f41;
   font-weight: bolder;
-  padding: 6px 0;
+  padding: 4px 0;
   /* bottom: 50%;   */
 }
 
@@ -138,6 +179,15 @@
   background-color: #e15f41;
 }
 
+.coffeemenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  width: 80vw;
+  margin: 0 auto;
+  transform: translate(0%, 30vh);
+}
 .menu {
   width: 100vw;
   /* height: 60vh; */
@@ -150,6 +200,19 @@
   /* left: 50%; */
   /* bring your own prefixes */
   transform: translate(0%, -50%);
+}
+
+.coffee__btn {
+  display: block;
+  margin: 0 auto;
+  background-color: #f5cd79;
+  color: white;
+  height: 40px;
+  width: 100%;
+  border: 0px transparent;
+  border-radius: 50px;
+  font-size: 20px;
+  border-style: none;
 }
 
 .menu__btn {

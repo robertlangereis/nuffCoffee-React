@@ -3,23 +3,23 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import {withRouter} from 'react-router'
-import {userId} from '../../jwt'
-import {connect} from 'react-redux'
+import { withRouter } from 'react-router'
+import { userId } from '../../jwt'
+import { connect } from 'react-redux'
 import AccountIcon from '@material-ui/icons/AccountBox'
 
 const TopBar = (props) => {
   const { location, history, user } = props
 
   return (
-    <AppBar position="relative" style={{zIndex:10}}>
+    <AppBar position="relative" style={{ zIndex: 10 }}>
       <Toolbar>
-        <Typography variant="title" color="inherit" style={{flex: 1}}>
-        <Button color="inherit" onClick={() => history.push('/coffeecount')}><h1><span role="img" aria-label="CoffeeCup">☕</span> nuffCoffee...?</h1></Button>
-        </Typography>
+        {<Typography variant="title" color="inherit" style={{ flex: 1 }}>
+          <Button color="inherit" onClick={() => history.push('/coffeecount')}><span role="img" aria-label="CoffeeCup">☕</span> nuffCoffee?</Button>
+        </Typography>}
         {
           user &&
-          <Button color="inherit"><AccountIcon /> { user.firstName }</Button>
+          <Button color="inherit"><AccountIcon /> {user.firstName}</Button>
         }
 
         {
@@ -39,8 +39,7 @@ const TopBar = (props) => {
           <Button color="inherit" onClick={() => history.push('/login')}>Login</Button>
         } */}
         {
-          /coffeecount$/.test(location.pathname) &&
-          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
+           <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
         }
       </Toolbar>
     </AppBar>
