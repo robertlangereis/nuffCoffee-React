@@ -10,6 +10,7 @@ import {userId} from '../../jwt'
 
 
 class Home extends React.Component {
+  
   componentDidMount() {
     if (this.props.authenticated) {
       if (this.props.users === null) this.props.getUsers()
