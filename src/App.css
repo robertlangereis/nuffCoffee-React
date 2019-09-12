@@ -185,7 +185,7 @@
   grid-row-gap: 20px;
   grid-column-gap: 20px;
   width: 80vw;
-  margin: 0 auto;
+  margin: 7vh auto;
   transform: translate(0%, 30vh);
 }
 .menu {
