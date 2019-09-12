@@ -19,14 +19,8 @@ const updateCoffeeType = coffeetype => ({
 // GET ALL COFFEETYPES
 export const getCoffeetypes = () => (dispatch, getState) => {
   if (getState().coffeetypes) return
-  const state = getState()
-  if (!state.currentUser) return null
-  const jwt = state.currentUser.jwt
-
-  if (isExpired(jwt)) return dispatch(logout())
   request
     .get(`${baseUrl}/coffeetypes`)
-    .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch(updateCoffeeTypes(result.body))
     })

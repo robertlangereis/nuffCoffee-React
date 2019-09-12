@@ -12,24 +12,27 @@ import {userId} from '../../jwt'
 class Home extends React.Component {
   componentDidMount() {
     if (this.props.authenticated) {
-    if (this.props.coffeetypes === null) this.props.getCoffeetypes()
-    if (this.props.users === null) this.props.getUsers()
-    if (this.props.user === null) this.props.getUserProfile()
+      if (this.props.users === null) this.props.getUsers()
+      if (this.props.user === null) this.props.getUserProfile()
     }
+    if (this.props.coffeetypes === null) this.props.getCoffeetypes()
   }
   render() {
-    const {coffeetypes, users, authenticated, userId} = this.props
+    const {coffeetypes, users, authenticated, userId, user, currentUser} = this.props
+    coffeetypes && console.log(coffeetypes.map(coffee => coffee))
+    
     return(
     <div className="home">   
       <h1 className="logo">nuffCoffee...?</h1>
-      {this.props.currentUser && <SuccessLogin currentuser={this.props.currentUser}/>}
+      {this.props.currentUser && <SuccessLogin currentuser={currentUser}/>}
       <NuffCoffee/>
-      {this.props.user && <CoffeeTypeButtons coffeetypes={ this.props.user.coffeetypes}/>}
-      {/* <div className="menu">
-        <button className="menu__btn">Home</button>
+      {this.props.user && <CoffeeTypeButtons coffeetypes={user.coffeetypes}/>}
+      {!this.props.user && <CoffeeTypeButtons coffeetypes={coffeetypes}/>}
+      {<div className="menu">
+        <button className="menu__btn">Counter</button>
+        <button className="menu__btn">Profile</button>
         <button className="menu__btn">About</button>
-        <button className="menu__btn">Count</button>
-      </div> */}
+      </div>}
     </div>)}
 }
 const mapStateToProps = state => ({
