@@ -4,17 +4,26 @@ import { logout } from '../../actions/users'
 import { Redirect } from 'react-router-dom'
 
 class LogoutPage extends PureComponent {
-	WillMount() {
+
+	state = {
+		redirect: false
+	  }
+
+	componentWillMount() {
 		this.props.logout()
+		this.id = setTimeout(() => this.setState({ redirect: true }), 1000)
+
 	}
+	componentWillUnmount() {
+		clearTimeout(this.id)
+	  }
 
 	render() {
-		if (!this.props.currentUser) return (
+		return (this.state.redirect
+			? 
 			<Redirect to="/" />
-		)
-
-		return (
-			<div>
+			:
+			<div className="firstCoffee">
 				<h1>Logging out...</h1>
 			</div>
 		)

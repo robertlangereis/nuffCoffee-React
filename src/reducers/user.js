@@ -1,4 +1,4 @@
-import { ADD_USER, UPDATE_USER, UPDATE_USERS, UPDATE_PROFILE} from '../actions/users'
+import {UPDATE_PROFILE } from '../actions/users'
 import { USER_LOGOUT } from '../actions/users'
 
 /*
@@ -10,26 +10,11 @@ export default (state = null, { type, payload }) => {
     case USER_LOGOUT:
       return null
 
-    case ADD_USER:
-      return {
-        ...state,
-        [payload.id]: payload
-      }
-
-    case UPDATE_USER:
-      return {
-        ...state,
-        [payload.id]: payload
-      }
     case UPDATE_PROFILE:
-      return {
-        ...state,
-        [payload.id]: payload
-      }
-    case UPDATE_USERS:
       return payload.reduce((users, user) => {
         users[user.id] = user
-        return users
+        console.log('user', user);
+        return user
       }, {})
 
     default:

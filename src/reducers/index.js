@@ -6,6 +6,7 @@ import login from './login'
 import signup from './signup'
 import currentUser from './currentUser'
 import users from './users'
+import user from './user'
 
 export default {
   coffee,
@@ -15,5 +16,6 @@ export default {
   login, 
   signup,
   currentUser,
-  users
+  users,
+  user
 }

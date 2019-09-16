@@ -5,6 +5,7 @@ import {isExpired} from '../jwt'
 export const ADD_USER = 'ADD_USER'
 export const UPDATE_USER = 'UPDATE_USER'
 export const UPDATE_USERS = 'UPDATE_USERS'
+export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
@@ -41,6 +42,10 @@ const updateUsers = (users) => ({
   type: UPDATE_USERS,
   payload: users
 })
+const updateProfile = (users) => ({
+  type: UPDATE_PROFILE,
+  payload: users
+})
 
 export const login = (email, password) => (dispatch) =>
 	request
@@ -74,13 +79,28 @@ export const signup = (email, password) => (dispatch) =>
 
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()
-  if (!state.currentUser) return null
+  const currentuser = state.currentUser
+  if (!currentuser ) return null
   const jwt = state.currentUser.jwt
   if (isExpired(jwt)) return dispatch(logout())
 
   request
     .get(`${baseUrl}/users`)
     .set('Authorization', `Bearer ${jwt}`)
+    // .then(result => console.log(result.body))
     .then(result => dispatch(updateUsers(result.body)))
+    .catch(err => console.error(err))
+}
+export const getUserProfile = () => (dispatch, getState) => {
+  const state = getState()
+  const currentuser = state.currentUser
+  if (!currentuser ) return null
+  const jwt = state.currentUser.jwt
+  if (isExpired(jwt)) return dispatch(logout())
+  request
+    .get(`${baseUrl}/users`)
+    .set('Authorization', `Bearer ${jwt}`)
+    // .then(result => console.log(result.body, "RESULT.BODY"))
+    .then(result => dispatch(updateProfile(result.body)))
     .catch(err => console.error(err))
 }

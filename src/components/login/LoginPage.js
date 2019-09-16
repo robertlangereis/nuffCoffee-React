@@ -29,7 +29,7 @@ class LoginPage extends PureComponent {
 
 const mapStateToProps = function (state) {
 	return {
-		currentUser: state.currentUser,
+	currentUser: state.currentUser,
     error: state.login.error
 	}
 }

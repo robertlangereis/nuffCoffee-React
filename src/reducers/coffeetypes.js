@@ -11,14 +11,18 @@ export default (state = null, { type, payload }) => {
     case USER_LOGOUT:
       return null
 
-    case GET_COFFEETYPES:
-      return payload.reduce((coffees, coffeetype) => {
-        console.log(coffees)
-        console.log(coffeetype)
-        // coffees[coffeetype.id] = coffeetype
-        return coffees
-      }, {})
+    // case GET_COFFEETYPES:
+    //   return payload.reduce((coffees, coffeetype) => {
+    //     console.log(coffees)
+    //     console.log(coffeetype)
+    //     // coffees[coffeetype.id] = coffeetype
+    //     return coffees
+    //   }, {})
+   
+      case GET_COFFEETYPES:
+      return payload;
+
     default:
-      return state
+      return state;
   }
 }
