@@ -9,7 +9,7 @@ function CoffeeTypeButtons(props){
 
     return (<div>
       <div className="coffeemenu">
-   {coffeetypes && coffeetypes.slice(0,6).map(coffee => <button className="coffee__btn">{coffee.coffeeName}</button>)}
+   {coffeetypes && coffeetypes.slice(0,6).map(coffee => <button key={coffee.id} className="coffee__btn">{coffee.coffeeName}</button>)}
         
         {/* <button className="menu__btn">About</button> */}
         {/* <button className="menu__btn">Count</button> */}

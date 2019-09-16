@@ -1,4 +1,4 @@
-import { ADD_USER, UPDATE_USER, UPDATE_USERS, UPDATE_PROFILE } from '../actions/users'
+import { ADD_USER, UPDATE_USER, UPDATE_USERS, UPDATE_PROFILE} from '../actions/users'
 import { USER_LOGOUT } from '../actions/users'
 
 /*
@@ -17,6 +17,11 @@ export default (state = null, { type, payload }) => {
       }
 
     case UPDATE_USER:
+      return {
+        ...state,
+        [payload.id]: payload
+      }
+    case UPDATE_PROFILE:
       return {
         ...state,
         [payload.id]: payload
