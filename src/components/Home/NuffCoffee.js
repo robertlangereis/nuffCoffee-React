@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'
 // import React, {useState, useEffect, useDispatch} from 'react';
 import NuffCoffeeCup from './NuffCoffeeCup';
 // import { getCoffeetypes } from './../../actions/coffeeType.js'
@@ -25,31 +25,23 @@ import NuffCoffeeCup from './NuffCoffeeCup';
 //     return <h1>{console.log(coffee)}</h1>
 //   }
 
-class NuffCoffee extends React.Component {
-  constructor(props) {
+function NuffCoffee(props) {
     
-    super(props);
-    this.coffeeCounterPlus = this.coffeeCounterPlus.bind(this);
-    this.coffeeCounterMinus = this.coffeeCounterMinus.bind(this);
-    this.state = {
-      coffeecount: 0
-    };
-  }
+  const [coffeecount, setCoffeecount] = useState(0);
+    
+    // this.coffeeCounterPlus = this.coffeeCounterPlus.bind(this);
+    // this.coffeeCounterMinus = this.coffeeCounterMinus.bind(this);
+    
+    
+    // this.state = {
+    //   coffeecount: 0
+    // };
   
     
-  coffeeCounterPlus = () => {
-    this.setState({
-      coffeecount: this.state.coffeecount + 1
-    })
-  }
-  coffeeCounterMinus = () => {
-    const coffeecount = this.state.coffeecount - 1
-    this.setState({
-      coffeecount: coffeecount
-    })
-  }
+    const coffeeCounterPlus = () => setCoffeecount(prevcount => + prevcount + 1) 
+    
+    const coffeeCounterMinus = () => setCoffeecount(prevcount => prevcount - 1)
   
-  render() {
     const date = new Date();
     // const day = date.getDay();
     const weekday = new Array(7);
@@ -62,11 +54,11 @@ class NuffCoffee extends React.Component {
     weekday[6] = "Saturday";
     const day = weekday[date.getDay()]
     return (<div>
-      <div className="counterText">{day}: {this.state.coffeecount} coffee shots</div>
-      {this.state.coffeecount===0 && <div className="firstCoffee">GET YOUR FIRST SHOT OF THE DAY!</div> }
+      <div className="counterText">{day}: {coffeecount} coffee shots</div>
+      {coffeecount===0 && <div className="firstCoffee">GET YOUR FIRST SHOT OF THE DAY!</div> }
       <div className="coffeecupcontainer">
-        <NuffCoffeeCup coffeeCount={this.state.coffeecount} coffeeMinus={this.coffeeCounterMinus} coffeePlus={this.coffeeCounterPlus}/>
+        <NuffCoffeeCup coffeeCount={coffeecount} coffeeMinus={coffeeCounterMinus} coffeePlus={coffeeCounterPlus}/>
       </div></div>)
   }
-}
+
 export default NuffCoffee;
