@@ -3,7 +3,6 @@ import NuffCoffee from '../nuffCoffee/NuffCoffee';
 import CoffeeTypeButtons from '../layout/CoffeeTypeButtons';
 import SuccessLogin from '../login/SuccessLogin';
 import { getCoffeetypes } from '../../actions/coffeeType';
-import { getUsers } from '../../actions/users';
 import { getUserProfile } from '../../actions/users';
 import { useSelector, useDispatch } from 'react-redux';
 import { userId } from '../../jwt'

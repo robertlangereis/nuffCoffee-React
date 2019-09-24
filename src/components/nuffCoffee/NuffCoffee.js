@@ -1,49 +1,13 @@
 import React, { useState } from 'react'
-// import React, {useState, useEffect, useDispatch} from 'react';
 import NuffCoffeeCup from './NuffCoffeeCup';
-// import { getCoffeetypes } from './../../actions/coffeeType.js'
 
-// function GrabCoffee(){
-//   console.log("joe")
-// const [coffee, setCoffee] = useState('')
-
-// const useFetching = actionArgs => {
-//   useEffect( () => {
-//     store.dispatch(action(actionArgs)); // does not work
-//   })
-// }
-// useFetching(fetchSomething, useDispatch());
-
-
-//   useEffect(() => {
-//     const coffees = getCoffeetypes()
-//     console.log(coffees)
-//       return () => {
-        
-//       };
-//     }, [coffee])
-//     return <h1>{console.log(coffee)}</h1>
-//   }
-
-function NuffCoffee(props) {
+const NuffCoffee = () => {
     
-  const [coffeecount, setCoffeecount] = useState(0);
-    
-    // this.coffeeCounterPlus = this.coffeeCounterPlus.bind(this);
-    // this.coffeeCounterMinus = this.coffeeCounterMinus.bind(this);
-    
-    
-    // this.state = {
-    //   coffeecount: 0
-    // };
-  
-    
+    const [coffeecount, setCoffeecount] = useState(0);
     const coffeeCounterPlus = () => setCoffeecount(prevcount => + prevcount + 1) 
-    
     const coffeeCounterMinus = () => setCoffeecount(prevcount => prevcount - 1)
   
     const date = new Date();
-    // const day = date.getDay();
     const weekday = new Array(7);
     weekday[0] =  "Sunday";
     weekday[1] = "Monday";

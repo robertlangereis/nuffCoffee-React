@@ -1,51 +1,50 @@
-import React, {PureComponent} from 'react'
+import React, {useState} from 'react'
 import './SignupForm.css'
 
-export default class SignupForm extends PureComponent {
-	state = {}
+const SignupForm = ({onSubmit})=> {
+	const [state, setState] = useState({email: '', password: '', confirmPassword: ''});
 
-	handleSubmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.onSubmit(this.state)
+		onSubmit(state)
 	}
 
-	handleChange = (event) => {
-    const {name, value} = event.target
+	const handleChange = (event) => {
+		const {name, value} = event.target
+	
+		setState({
+			...state, [name]: value
+		})  
+	}
 
-    this.setState({
-      [name]: value
-    })
-  }
-
-	render() {
 		return (
       <div className="signup-form">
-  			<form onSubmit={this.handleSubmit}>
+  			<form onSubmit={handleSubmit}>
   				<label>
             Email
             <input type="email" name="email" value={
-  						this.state.email || ''
-  					} onChange={ this.handleChange } />
+  						state.email || ''
+  					} onChange={ handleChange } />
           </label>
   					
   				<label>
             Password
   					<input type="password" name="password" value={
-  						this.state.password || ''
-  					} onChange={ this.handleChange } />
+  						state.password || ''
+  					} onChange={ handleChange } />
   				</label>
 
   				<label>
             Confirm password
   					<input type="password" name="confirmPassword" value={
-  						this.state.confirmPassword || ''
-  					} onChange={ this.handleChange } />
+  						state.confirmPassword || ''
+  					} onChange={ handleChange } />
   				</label>
 
   				{
-  					this.state.password &&
-  					this.state.confirmPassword &&
-  					this.state.password !== this.state.confirmPassword &&
+  					state.password &&
+  					state.confirmPassword &&
+  					state.password !== state.confirmPassword &&
   					<p style={{color:'red'}}>The passwords do not match!</p>
   				}
 
@@ -54,4 +53,5 @@ export default class SignupForm extends PureComponent {
       </div>
 		)
 	}
-}
+
+export default SignupForm

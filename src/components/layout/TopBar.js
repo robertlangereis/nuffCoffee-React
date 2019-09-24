@@ -1,25 +1,28 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import { useSelector} from 'react-redux';
 import { withRouter } from 'react-router'
 import { userId } from '../../jwt'
 import { connect } from 'react-redux'
 import AccountIcon from '@material-ui/icons/AccountBox'
 
-const TopBar = (props) => {
-  const { location, history, user } = props
-
+const TopBar = ({ location, history}) => {
+  const user = useSelector(state => state.user)
+  
   return (
     <AppBar position="relative" style={{ zIndex: 10 }}>
       <Toolbar>
-        {<Typography variant="title" color="inherit" style={{ flex: 1 }}>
+        {
+        <Typography variant="title" color="inherit" style={{ flex: 1 }}>
           <Button color="inherit" onClick={() => history.push('/coffeecount')}><span role="img" aria-label="CoffeeCup">☕</span> nuffCoffee?</Button>
-        </Typography>}
+        </Typography>
+        }
         {
           user &&
-          <Button color="inherit"><AccountIcon /> {user.firstName}</Button>
+          <Button color="inherit" onClick={() => history.push('/user/:id')}><AccountIcon />{user.firstName}</Button>
         }
 
         {
@@ -46,11 +49,6 @@ const TopBar = (props) => {
   )
 }
 
-const mapStateToProps = state => ({
-  user: state.currentUser && state.users &&
-    state.users[userId(state.currentUser.jwt)]
-})
-
 export default withRouter(
-  connect(mapStateToProps)(TopBar)
+  connect()(TopBar)
 )
