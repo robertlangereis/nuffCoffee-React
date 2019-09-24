@@ -65,8 +65,8 @@ export const signup = (email, password) => (dispatch) =>
 	request
 		.post(`${baseUrl}/users`)
 		.send({ email: email, password: password })
-		.then(result => {
-			dispatch(userSignupSuccess(result.body))
+		.then(_ => {
+			dispatch(userSignupSuccess())
 		})
 		.catch(err => {
 			if (err.status === 400) {
