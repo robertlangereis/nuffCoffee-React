@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import React, { useEffect, useState, useSelector, useDispatch } from 'react';
-import Coffeestart from './images/coffeestart.svg'
-import Coffee1shot from './images/coffee1shot.svg'
-import Coffee2shot from './images/coffee2shots.svg'
-import Coffee3shot from './images/coffee3shots.svg'
-import Coffee4shot from './images/coffee4shots.svg'
-import Coffee5shot from './images/coffee5shots.svg'
+import Coffeestart from '../images/coffeestart.svg'
+import Coffee1shot from '../images/coffee1shot.svg'
+import Coffee2shot from '../images/coffee2shots.svg'
+import Coffee3shot from '../images/coffee3shots.svg'
+import Coffee4shot from '../images/coffee4shots.svg'
+import Coffee5shot from '../images/coffee5shots.svg'
 // import GET_COFFEETYPES from '../../reducers/coffeetypes'
-import { connect } from 'react-redux';
 
 // function Setup(){
 //   const [coffees] = useState(props.coffees);

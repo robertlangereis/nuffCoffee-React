@@ -13,7 +13,6 @@ export default (state = null, { type, payload }) => {
     case UPDATE_PROFILE:
       return payload.reduce((users, user) => {
         users[user.id] = user
-        console.log('user', user);
         return user
       }, {})
 

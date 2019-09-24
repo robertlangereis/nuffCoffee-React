@@ -1,42 +1,41 @@
-import React, {PureComponent} from 'react'
+import React, {useState} from 'react'
 import './LoginForm.css'
 
-export default class LoginForm extends PureComponent {
-	state = {}
+const LoginForm = ({onSubmit}) => {
+	const [state, setState] = useState({email: '', password: ''});
 
-	handleSubmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.onSubmit(this.state)
+		onSubmit(state)
 	}
 
-	handleChange = (event) => {
-    const {name, value} = event.target
-
-    this.setState({
-      [name]: value
-    })
-  }
-
-	render() {
+	const handleChange = (event) => {
+		const {name, value} = event.target
+	
+		setState({
+			...state, [name]: value
+		})  
+	}
 		return (
       <div className="login-form">
-  			<form onSubmit={this.handleSubmit}>
+  			<form onSubmit={handleSubmit}>
   				<label>
             Email
             <input type="email" name="email" value={
-  						this.state.email || ''
-  					} onChange={ this.handleChange } />
+  						state.email || ''
+  					} onChange={ handleChange } />
           </label>
 
   				<label>
             Password
             <input type="password" name="password" value={
-  						this.state.password || ''
-  					} onChange={ this.handleChange } />
+  						state.password || ''
+  					} onChange={ handleChange } />
           </label>
 
   				<button type="submit">Login</button>
   			</form>
 		  </div>)
 	}
-}
+
+export default LoginForm

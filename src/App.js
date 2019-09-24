@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
-import LogoutPage from './components/logout/LogoutPage'
+import LogoutPage from './components/login/LogoutPage'
 import './App.css'
 import TopBar from './components/layout/TopBar'
-import Home from './components/Home/Home';
-import NuffCoffee from './components/Home/NuffCoffee.js';
+import Home from './components/pages/Home';
+import NuffCoffee from './components/nuffCoffee/NuffCoffee.js';
 import {RemoveScrollBar} from 'react-remove-scroll-bar';
 
 
